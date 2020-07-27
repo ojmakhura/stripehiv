@@ -11,6 +11,9 @@ package bw.ub.stripehiv.user.service;
 
 import bw.ub.stripehiv.user.vo.UserSearchCriteria;
 import bw.ub.stripehiv.user.vo.UserVO;
+
+import java.util.Collection;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -50,7 +53,7 @@ public class UserServiceImpl
      * @see bw.ub.stripehiv.user.service.UserService#searchUsers(UserSearchCriteria)
      */
     @Override
-    protected  UserVO handleSearchUsers(UserSearchCriteria searchCriteria)
+    protected Collection<UserVO> handleSearchUsers(UserSearchCriteria searchCriteria)
         throws Exception
     {
         // TODO implement protected  UserVO handleSearchUsers(UserSearchCriteria searchCriteria)
