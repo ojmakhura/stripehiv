@@ -9,6 +9,7 @@
  */
 package bw.ub.stripehiv.module.service;
 
+import bw.ub.stripehiv.module.Module;
 import bw.ub.stripehiv.module.vo.ModuleSearchCriteria;
 import bw.ub.stripehiv.module.vo.ModuleVO;
 import java.util.Collection;
@@ -32,8 +33,15 @@ public class ModuleServiceImpl
     protected  ModuleVO handleSaveModule(ModuleVO moduleVO)
         throws Exception
     {
-        // TODO implement protected  ModuleVO handleSaveModule(ModuleVO moduleVO)
-        throw new UnsupportedOperationException("bw.ub.stripehiv.module.service.ModuleService.handleSaveModule(ModuleVO moduleVO) Not implemented!");
+    	Module module = getModuleDao().moduleVOToEntity(moduleVO);
+        if(moduleVO.getId() == null) {
+        	module = getModuleDao().create(module);
+        	
+        } else {
+        	getModuleDao().update(module);
+        }
+        
+        return getModuleDao().toModuleVO(module);
     }
 
     /**
@@ -43,8 +51,13 @@ public class ModuleServiceImpl
     protected  Boolean handleRemoveModule(Long id)
         throws Exception
     {
-        // TODO implement protected  Boolean handleRemoveModule(Long id)
-        throw new UnsupportedOperationException("bw.ub.stripehiv.module.service.ModuleService.handleRemoveModule(Long id) Not implemented!");
+        if(id == null) {
+        	return false;
+        }
+        
+        getModuleDao().remove(id);
+        
+        return true;
     }
 
     /**
@@ -54,8 +67,9 @@ public class ModuleServiceImpl
     protected  Collection<ModuleVO> handleSearchModules(ModuleSearchCriteria searchCriteria)
         throws Exception
     {
-        // TODO implement protected  Collection<ModuleVO> handleSearchModules(ModuleSearchCriteria searchCriteria)
-        throw new UnsupportedOperationException("bw.ub.stripehiv.module.service.ModuleService.handleSearchModules(ModuleSearchCriteria searchCriteria) Not implemented!");
+    	Collection<Module> entities = getModuleDao().findByCriteria(searchCriteria);
+    	
+    	return getModuleDao().toModuleVOCollection(entities);
     }
 
 }

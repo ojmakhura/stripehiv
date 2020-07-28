@@ -6,7 +6,19 @@
  */
 package bw.ub.stripehiv.user;
 
+import bw.ub.stripehiv.user.vo.UserSearchCriteria;
 import bw.ub.stripehiv.user.vo.UserVO;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
+
 import org.springframework.stereotype.Repository;
 
 /**
@@ -85,4 +97,41 @@ public class UserDaoImpl
         super.userVOToEntity(source, target, copyIfNull);
         // No conversion for target.dateOfBirth (can't convert source.getDateOfBirth():java.util.Date to java.util.Date
     }
+
+	@Override
+	protected Collection<User> handleFindByCriteria(UserSearchCriteria searchCriteria) throws Exception {
+		CriteriaBuilder builder = getSession().getCriteriaBuilder();
+		CriteriaQuery<User> query = builder.createQuery(User.class);
+		Root<User> root = query.from(User.class);
+		List<Predicate> predicates = new ArrayList<Predicate>();
+
+		if (searchCriteria.getEmail() != null) {
+			predicates
+					.add(builder.equal(root.<String>get("email"), searchCriteria.getEmail()));
+		}
+
+		if (searchCriteria.getFirstName() != null) {
+			predicates.add(builder.like(root.<String>get("firstName"), "%" + searchCriteria.getFirstName() + "%"));
+		}
+
+		if (searchCriteria.getSurname() != null) {
+			predicates.add(builder.like(root.<String>get("surname"), "%" + searchCriteria.getSurname() + "%"));
+		}
+
+		if (searchCriteria.getUsername() != null) {
+			predicates.add(builder.like(root.<String>get("username"), "%" + searchCriteria.getUsername() + "%"));
+		}
+
+		if (!predicates.isEmpty()) {
+			query.where();
+			Predicate[] pr = new Predicate[predicates.size()];
+			predicates.toArray(pr);
+			query.where(pr);
+		}
+
+		query.orderBy(builder.asc(root.get("code")));
+		TypedQuery<User> typedQuery = getSession().createQuery(query);
+		
+		return typedQuery.getResultList();
+	}
 }

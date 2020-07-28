@@ -34,6 +34,7 @@ public class UserServiceImpl
     protected  UserVO handleSaveUser(UserVO userVO)
         throws Exception
     {
+    	getUserDao().searchUniqueUsername("");
         // TODO implement protected  UserVO handleSaveUser(UserVO userVO)
         throw new UnsupportedOperationException("bw.ub.stripehiv.user.service.UserService.handleSaveUser(UserVO userVO) Not implemented!");
     }
