@@ -416,11 +416,11 @@
         <testdb.groupId>com.h2database</testdb.groupId>
         <testdb.artifactId>h2</testdb.artifactId>
         <testdb.version>1.4.180</testdb.version>
-        <testdb.driver>$${jdbc.driver}</testdb.driver>
-        <testdb.dialect>$${jdbc.dialect}</testdb.dialect>
-        <testdb.url>$${jdbc.url}</testdb.url>
-        <testdb.username>$${jdbc.username}</testdb.username>
-        <testdb.password>$${jdbc.password}</testdb.password>
+        <testdb.driver>${jdbc.driver}</testdb.driver>
+        <testdb.dialect>${jdbc.dialect}</testdb.dialect>
+        <testdb.url>${jdbc.url}</testdb.url>
+        <testdb.username>${jdbc.username}</testdb.username>
+        <testdb.password>${jdbc.password}</testdb.password>
         <!--
             Change this to generate to the correct MDA database mappings,
             For MySql use: MySQL
@@ -478,7 +478,7 @@
         <jetty.version>8.1.16.v20140903</jetty.version>
         <!-- v5 migration needed -->
         <spring.version>5.2.3.RELEASE</spring.version>
-	<spring-boot.version>2.2.4.RELEASE</spring-boot.version>
+		<spring-boot.version>2.2.4.RELEASE</spring-boot.version>
         <!-- To override parent default settings for compiler plugin and compliance checks-->
         <dependencyConvergence>true</dependencyConvergence>
         <!-- Any of these configuration values can be overridden by the descendant, the default is JDK 1.6 >
@@ -548,9 +548,9 @@
                 </jdbc.url>
                 <!-- Enter id/password for the database connection -->
                 <jdbc.username>
-                    stripehiv
+                    testuser
                 </jdbc.username>
-                <jdbc.password>stripehiv</jdbc.password>
+                <jdbc.password>TestUser123!</jdbc.password>
                 <!--
                     Change exception sorter class name for appropriate database
                     For H2 use: org.jboss.resource.adapter.jdbc.vendor.DummyExceptionSorter

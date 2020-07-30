@@ -14,7 +14,7 @@
     <!-- PrimitiveTypes package created automatically in RSM when adding datatype without a package -->
     <!-- datatype:: is the androMDA specific datatypes contained in the datatype profile referenced by project -->
     <!-- webservice date default and java value object date mappings match -->
-    <!--mapping>
+    <mapping>
         <from>Time</from>
         <from>Date</from>
         <from>DateTime</from>
@@ -27,9 +27,13 @@
         <from>datatype::Date</from>
         <from>datatype::DateTime</from>
         <from>datatype::Timestamp</from>
-        <to>java.util.Calendar</to>
+        <from>AndroMDADatatypes::datatype::Time</from>
+        <from>AndroMDADatatypes::datatype::Date</from>
+        <from>AndroMDADatatypes::datatype::DateTime</from>
+        <from>AndroMDADatatypes::datatype::Timestamp</from>
+        <to>java.util.Date</to>
     </mapping>
-    <mapping>
+    <!-- mapping>
         <from>Integer</from>
         <from>PrimitiveTypes::Integer</from>
         <from>datatype::Integer</from>

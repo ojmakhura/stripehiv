@@ -58,10 +58,6 @@ public class UserDaoImpl
      */
     private User loadUserFromUserVO(UserVO userVO)
     {
-        // TODO implement loadUserFromUserVO
-        throw new UnsupportedOperationException("bw.ub.stripehiv.user.loadUserFromUserVO(UserVO) not yet implemented.");
-
-        /* A typical implementation looks like this:
         if (userVO.getId() == null)
         {
             return  User.Factory.newInstance();
@@ -70,7 +66,6 @@ public class UserDaoImpl
         {
             return this.load(userVO.getId());
         }
-        */
     }
 
     /**

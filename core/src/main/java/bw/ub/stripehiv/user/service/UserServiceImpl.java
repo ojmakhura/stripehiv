@@ -9,6 +9,7 @@
  */
 package bw.ub.stripehiv.user.service;
 
+import bw.ub.stripehiv.user.User;
 import bw.ub.stripehiv.user.vo.UserSearchCriteria;
 import bw.ub.stripehiv.user.vo.UserVO;
 
@@ -34,9 +35,16 @@ public class UserServiceImpl
     protected  UserVO handleSaveUser(UserVO userVO)
         throws Exception
     {
-    	getUserDao().searchUniqueUsername("");
-        // TODO implement protected  UserVO handleSaveUser(UserVO userVO)
-        throw new UnsupportedOperationException("bw.ub.stripehiv.user.service.UserService.handleSaveUser(UserVO userVO) Not implemented!");
+    	User user = getUserDao().userVOToEntity(userVO);
+    	
+    	if(user.getId() == null ) {
+    		user = getUserDao().create(user);
+    	} else {
+    		getUserDao().update(user);
+    	}
+    	
+    	return getUserDao().toUserVO(user);
+    	
     }
 
     /**
@@ -46,8 +54,13 @@ public class UserServiceImpl
     protected  Boolean handleRemoveUser(Long id)
         throws Exception
     {
-        // TODO implement protected  Boolean handleRemoveUser(Long id)
-        throw new UnsupportedOperationException("bw.ub.stripehiv.user.service.UserService.handleRemoveUser(Long id) Not implemented!");
+    	if(id == null || id == 0) {
+    		return false;
+    	}
+    	
+    	getUserDao().remove(id);
+    	
+    	return true;
     }
 
     /**
@@ -57,8 +70,15 @@ public class UserServiceImpl
     protected Collection<UserVO> handleSearchUsers(UserSearchCriteria searchCriteria)
         throws Exception
     {
-        // TODO implement protected  UserVO handleSearchUsers(UserSearchCriteria searchCriteria)
-        throw new UnsupportedOperationException("bw.ub.stripehiv.user.service.UserService.handleSearchUsers(UserSearchCriteria searchCriteria) Not implemented!");
+    	Collection<User> entities = getUserDao().findByCriteria(searchCriteria);
+    	
+    	return getUserDao().toUserVOCollection(entities);
+    	
     }
+
+	@Override
+	protected UserVO handleFindByUsername(String username) throws Exception {
+		return getUserDao().toUserVO(getUserDao().searchUniqueUsername(username));
+	}
 
 }
