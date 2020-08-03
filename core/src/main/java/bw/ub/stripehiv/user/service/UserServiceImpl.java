@@ -81,4 +81,10 @@ public class UserServiceImpl
 		return getUserDao().toUserVO(getUserDao().searchUniqueUsername(username));
 	}
 
+	@Override
+	protected UserVO handleFindById(Long id) throws Exception {
+		
+		return getUserDao().toUserVO(getUserDao().get(id));
+	}
+
 }

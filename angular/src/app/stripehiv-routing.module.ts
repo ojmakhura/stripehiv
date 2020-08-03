@@ -8,9 +8,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { SearchModulesImplComponent } from './impl/view/bw/ub/stripehiv/module/web/search/search-modules.impl.component';
+import { SearchModulesModulesImplComponent } from './impl/view/bw/ub/stripehiv/module/web/search/search-modules-modules.impl.component';
+import { EditModuleSaveImplComponent } from './impl/view//bw/ub/stripehiv/module/web/edit/edit-module-save.impl.component';
+import { EditModuleImplComponent } from './impl/view/bw/ub/stripehiv/module/web/edit/edit-module.impl.component';
+import { SearchModulesSearchImplComponent } from './impl/view//bw/ub/stripehiv/module/web/search/search-modules-search.impl.component';
+import { EditModuleNewImplComponent } from './impl/view//bw/ub/stripehiv/module/web/edit/edit-module-new.impl.component';
 
 const routes: Routes = [
-
+    { path: 'editmodulenew', component: EditModuleNewImplComponent },
+    { path: 'editmodule', component: EditModuleImplComponent },
+    { path: 'searchmodulesmodules', component: SearchModulesModulesImplComponent },
+    { path: 'editmodulesave', component: EditModuleSaveImplComponent },
+    { path: 'searchmodulessearch', component: SearchModulesSearchImplComponent },
+    { path: 'searchmodules', component: SearchModulesImplComponent }
 ];
 
 @NgModule({

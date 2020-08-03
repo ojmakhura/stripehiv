@@ -6,8 +6,13 @@
  */
 package bw.ub.stripehiv.module;
 
+import bw.ub.stripehiv.Search;
+import bw.ub.stripehiv.SearchParameter;
+import bw.ub.stripehiv.module.objective.Objective;
+import bw.ub.stripehiv.module.objective.vo.ObjectiveVO;
 import bw.ub.stripehiv.module.vo.ModuleSearchCriteria;
 import bw.ub.stripehiv.module.vo.ModuleVO;
+import io.jsonwebtoken.lang.Collections;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -49,7 +54,7 @@ public class ModuleDaoImpl
         	
         	target.setNextModule(next);
         }
-        
+
         // WARNING! No conversion for target.previousModule (can't convert source.getPreviousModule():Module to ModuleVO
         if(source.getPreviousModule() != null) {
         	ModuleVO prev = new ModuleVO();
@@ -59,6 +64,15 @@ public class ModuleDaoImpl
         	prev.setModuleName(source.getPreviousModule().getModuleName());
         	
         	target.setPreviousModule(prev);
+        }
+
+        if(!Collections.isEmpty(source.getObjectives())) {
+        	ArrayList<ObjectiveVO> objectives = new ArrayList<ObjectiveVO>();
+        	for(Objective obj : source.getObjectives()) {
+        		objectives.add(getObjectiveDao().toObjectiveVO(obj));
+        	}
+        	
+        	target.setObjectives(objectives);
         }
     }
 
@@ -118,6 +132,15 @@ public class ModuleDaoImpl
         	
         	entity.setPreviousModule(module);        	
         }
+        
+        if(!Collections.isEmpty(moduleVO.getObjectives())) {
+        	
+        	ArrayList<Objective> objectives = new ArrayList<Objective>();
+        	for(ObjectiveVO obj : moduleVO.getObjectives()) {
+        		objectives.add(getObjectiveDao().objectiveVOToEntity(obj));
+        	}
+        	entity.setObjectives(objectives);
+        }
 
         return entity;
     }
@@ -137,29 +160,19 @@ public class ModuleDaoImpl
 
 	@Override
 	protected Collection<Module> handleFindByCriteria(ModuleSearchCriteria searchCriteria) throws Exception {
-		CriteriaBuilder builder = getSession().getCriteriaBuilder();
-		CriteriaQuery<Module> query = builder.createQuery(Module.class);
-		Root<Module> root = query.from(Module.class);
-		List<Predicate> predicates = new ArrayList<Predicate>();
+		
+		Search search = new Search();
 
 		if (searchCriteria.getCode() != null) {
-			predicates
-					.add(builder.like(root.<String>get("code"), "%" + searchCriteria.getCode() + "%"));
+			SearchParameter param = new SearchParameter(searchCriteria.getCode(), SearchParameter.LIKE_COMPARATOR);
+			search.addSearchParameter(param);
 		}
 
 		if (searchCriteria.getModuleName() != null) {
-			predicates.add(builder.like(root.<String>get("moduleName"), "%" + searchCriteria.getModuleName() + "%"));
+			SearchParameter param = new SearchParameter("%" + searchCriteria.getModuleName() + "%", SearchParameter.LIKE_COMPARATOR);
+			search.addSearchParameter(param);
 		}
-
-		if (!predicates.isEmpty()) {
-			query.where();
-			Predicate[] pr = new Predicate[predicates.size()];
-			predicates.toArray(pr);
-			query.where(pr);
-		}
-
-		query.orderBy(builder.asc(root.get("code")));
-		TypedQuery<Module> typedQuery = getSession().createQuery(query);
-		return typedQuery.getResultList();
+		
+		return this.search(search);
 	}
 }

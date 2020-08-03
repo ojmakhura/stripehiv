@@ -1,5 +1,9 @@
 <mat-nav-list class="card my-5">
     <div>
+		<button mat-button [matMenuTriggerFor]="appMenu">Application Menu</button>
+		<mat-menu #appMenu="matMenu">
+            <button mat-menu-item routerLink="/editmodule" (click)="onSidenavClose()">Edit Module</button>
+            <button mat-menu-item routerLink="/searchmodules" (click)="onSidenavClose()">Search Modules</button>
         </mat-menu>
     </div>
 </mat-nav-list>

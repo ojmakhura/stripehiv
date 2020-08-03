@@ -13,7 +13,7 @@ export class UserModuleServiceImpl extends UserModuleService {
     }
 
     public saveUserModule(userModuleVO: UserModuleVO): Observable<UserModuleVO> {
-        return this.http.post<UserModuleVO>(this.path + '/saveusermodule/userModuleVO/', userModuleVO);
+        return this.http.post<UserModuleVO>(this.path + '/saveusermodule/', userModuleVO);
     }
 
     public removeUserModule(id: number): Observable<boolean> {

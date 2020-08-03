@@ -6,6 +6,8 @@
  */
 package bw.ub.stripehiv.user;
 
+import bw.ub.stripehiv.Search;
+import bw.ub.stripehiv.SearchParameter;
 import bw.ub.stripehiv.user.vo.UserSearchCriteria;
 import bw.ub.stripehiv.user.vo.UserVO;
 
@@ -39,6 +41,9 @@ public class UserDaoImpl
         // TODO verify behavior of toUserVO
         super.toUserVO(source, target);
         // WARNING! No conversion for target.dateOfBirth (can't convert source.getDateOfBirth():java.util.Date to java.util.Date
+        if(source.getDateOfBirth() != null) {
+        	target.setDateOfBirth(source.getDateOfBirth());
+        }
     }
 
     /**
@@ -91,42 +96,39 @@ public class UserDaoImpl
         // TODO verify behavior of userVOToEntity
         super.userVOToEntity(source, target, copyIfNull);
         // No conversion for target.dateOfBirth (can't convert source.getDateOfBirth():java.util.Date to java.util.Date
+        if(source.getDateOfBirth() != null) {
+        	target.setDateOfBirth(source.getDateOfBirth());
+        }
     }
 
 	@Override
 	protected Collection<User> handleFindByCriteria(UserSearchCriteria searchCriteria) throws Exception {
-		CriteriaBuilder builder = getSession().getCriteriaBuilder();
-		CriteriaQuery<User> query = builder.createQuery(User.class);
-		Root<User> root = query.from(User.class);
-		List<Predicate> predicates = new ArrayList<Predicate>();
+		
+		Search search = new Search();
 
 		if (searchCriteria.getEmail() != null) {
-			predicates
-					.add(builder.equal(root.<String>get("email"), searchCriteria.getEmail()));
+			
+			SearchParameter param = new SearchParameter(searchCriteria.getEmail(), SearchParameter.EQUAL_COMPARATOR);
+			search.addSearchParameter(param);
 		}
 
 		if (searchCriteria.getFirstName() != null) {
-			predicates.add(builder.like(root.<String>get("firstName"), "%" + searchCriteria.getFirstName() + "%"));
+			SearchParameter param = new SearchParameter("%" + searchCriteria.getFirstName() + "%", SearchParameter.LIKE_COMPARATOR);
+			search.addSearchParameter(param);
 		}
 
 		if (searchCriteria.getSurname() != null) {
-			predicates.add(builder.like(root.<String>get("surname"), "%" + searchCriteria.getSurname() + "%"));
+			SearchParameter param = new SearchParameter("%" + searchCriteria.getSurname() + "%", SearchParameter.LIKE_COMPARATOR);
+			search.addSearchParameter(param);
 		}
 
 		if (searchCriteria.getUsername() != null) {
-			predicates.add(builder.like(root.<String>get("username"), "%" + searchCriteria.getUsername() + "%"));
+			SearchParameter param = new SearchParameter("%" + searchCriteria.getUsername() + "%", SearchParameter.LIKE_COMPARATOR);
+			search.addSearchParameter(param);
 		}
-
-		if (!predicates.isEmpty()) {
-			query.where();
-			Predicate[] pr = new Predicate[predicates.size()];
-			predicates.toArray(pr);
-			query.where(pr);
-		}
-
-		query.orderBy(builder.asc(root.get("code")));
-		TypedQuery<User> typedQuery = getSession().createQuery(query);
 		
-		return typedQuery.getResultList();
+		search.addOrderBy("username");
+		
+		return this.search(search);
 	}
 }

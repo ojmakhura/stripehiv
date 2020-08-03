@@ -14,15 +14,23 @@ export class ModuleServiceImpl extends ModuleService {
     }
 
     public saveModule(moduleVO: ModuleVO): Observable<ModuleVO> {
-        return this.http.post<ModuleVO>(this.path + '/savemodule/moduleVO/', moduleVO);
+        return this.http.post<ModuleVO>(this.path + '/save', moduleVO);
     }
 
     public removeModule(id: number): Observable<boolean> {
-        return this.http.delete<boolean>(this.path + '/removemodule/id/' + id);
+        return this.http.delete<boolean>(this.path + '/delete/id/' + id);
     }
 
     public searchModules(searchCriteria: ModuleSearchCriteria): Observable<ModuleVO[]> {
         return this.http.post<ModuleVO[]>(this.path + '/search', searchCriteria);
+    }
+
+    public findById(id: number): Observable<ModuleVO> {
+        return this.http.get<ModuleVO>(this.path + '/find/id/' + id);
+    }
+
+    public getAllModules(): Observable<ModuleVO[]> {
+        return this.http.get<ModuleVO[]>(this.path + '/all');
     }
 
 }

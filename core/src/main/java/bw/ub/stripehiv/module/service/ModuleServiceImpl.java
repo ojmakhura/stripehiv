@@ -12,6 +12,8 @@ package bw.ub.stripehiv.module.service;
 import bw.ub.stripehiv.module.Module;
 import bw.ub.stripehiv.module.vo.ModuleSearchCriteria;
 import bw.ub.stripehiv.module.vo.ModuleVO;
+
+import java.util.ArrayList;
 import java.util.Collection;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -67,9 +69,33 @@ public class ModuleServiceImpl
     protected  Collection<ModuleVO> handleSearchModules(ModuleSearchCriteria searchCriteria)
         throws Exception
     {
-    	Collection<Module> entities = getModuleDao().findByCriteria(searchCriteria);
+    	Collection<Module> entities = getModuleDao().findByCriteria(searchCriteria);    	
+    	ArrayList<ModuleVO> modules = new ArrayList<ModuleVO>();
     	
-    	return getModuleDao().toModuleVOCollection(entities);
+    	for(Module module : entities) {
+    		modules.add(getModuleDao().toModuleVO(module));
+    	}
+    	
+    	return modules;
     }
+
+	@Override
+	protected ModuleVO handleFindById(Long id) throws Exception {
+		return getModuleDao().toModuleVO(getModuleDao().load(id));
+	}
+
+	@Override
+	protected Collection<ModuleVO> handleGetAllModules() throws Exception {
+		
+		Collection<Module> entities = getModuleDao().loadAll();    	
+    	ArrayList<ModuleVO> modules = new ArrayList<ModuleVO>();
+    	
+    	for(Module module : entities) {
+    		modules.add(getModuleDao().toModuleVO(module));
+    	}
+    	
+    	return modules;
+    	
+	}
 
 }

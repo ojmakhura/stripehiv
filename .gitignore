@@ -28,3 +28,6 @@ hs_err_pid*
 .classpath
 .project
 angular/src/app/gen
+angular/dist
+angular/node/
+angular/node_modules 

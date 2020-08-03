@@ -43,11 +43,22 @@ import { StripehivNavigationComponent } from './navigation/stripehiv-navigation.
 import { StripehivRoutingModule } from './stripehiv-routing.module';
 import { StripehivComponent } from './stripehiv.component';
 
+import { ModuleServiceImpl } from './impl/service/bw/ub/stripehiv/module/service/module-service-impl';
 
+import { ModuleEditControllerImpl } from './impl/controller/bw/ub/stripehiv/module/web/edit/module-edit-controller-impl';
+import { ModuleSearchControllerImpl } from './impl/controller/bw/ub/stripehiv/module/web/search/module-search-controller-impl';
 
+import { EditModuleImplComponent } from './impl/view/bw/ub/stripehiv/module/web/edit/edit-module.impl.component';
+import { SearchModulesImplComponent } from './impl/view/bw/ub/stripehiv/module/web/search/search-modules.impl.component';
 
+import { SearchModulesModulesImplComponent } from './impl/view/bw/ub/stripehiv/module/web/search/search-modules-modules.impl.component';
 
+import { EditModuleSaveImplComponent } from './impl/view//bw/ub/stripehiv/module/web/edit/edit-module-save.impl.component';
+import { EditModuleNewImplComponent } from './impl/view//bw/ub/stripehiv/module/web/edit/edit-module-new.impl.component';
+import { SearchModulesSearchImplComponent } from './impl/view//bw/ub/stripehiv/module/web/search/search-modules-search.impl.component';
 
+import { ModuleVO } from './gen/model/bw/ub/stripehiv/module/vo/module-vo';
+import { ModuleSearchCriteria } from './gen/model/bw/ub/stripehiv/module/vo/module-search-criteria';
 
 @NgModule({
     declarations: [
@@ -56,8 +67,14 @@ import { StripehivComponent } from './stripehiv.component';
         StripehivHeaderComponent,
         StripehivNavigationComponent,
 
+        EditModuleImplComponent,
+        SearchModulesImplComponent,
 
+        SearchModulesModulesImplComponent,
 
+        EditModuleSaveImplComponent,
+        EditModuleNewImplComponent,
+        SearchModulesSearchImplComponent
 
     ],
     imports: [
@@ -112,11 +129,22 @@ import { StripehivComponent } from './stripehiv.component';
         MatTooltipModule
     ],
     providers: [
+        ModuleVO,
+        ModuleSearchCriteria,
 
+        ModuleServiceImpl,
 
+        ModuleEditControllerImpl,
+        ModuleSearchControllerImpl,
 
+        EditModuleImplComponent,
+        SearchModulesImplComponent,
 
+        SearchModulesModulesImplComponent,
 
+        EditModuleSaveImplComponent,
+        EditModuleNewImplComponent,
+        SearchModulesSearchImplComponent
 
     ],
     bootstrap: [StripehivComponent]

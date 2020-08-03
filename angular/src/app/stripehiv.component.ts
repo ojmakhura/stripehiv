@@ -4,6 +4,6 @@ import { Component } from '@angular/core';
   templateUrl: './stripehiv.component.html',
   styleUrls: ['./stripehiv.component.css']
 })
-export class ${moduleName}Component {
+export class StripehivComponent {
   title = 'Stripehiv';
 }
