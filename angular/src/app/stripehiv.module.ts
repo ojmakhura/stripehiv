@@ -43,22 +43,33 @@ import { StripehivNavigationComponent } from './navigation/stripehiv-navigation.
 import { StripehivRoutingModule } from './stripehiv-routing.module';
 import { StripehivComponent } from './stripehiv.component';
 
+import { ObjectiveServiceImpl } from './impl/service/bw/ub/stripehiv/module/objective/service/objective-service-impl';
 import { ModuleServiceImpl } from './impl/service/bw/ub/stripehiv/module/service/module-service-impl';
 
-import { ModuleEditControllerImpl } from './impl/controller/bw/ub/stripehiv/module/web/edit/module-edit-controller-impl';
+import { ObjectiveSearchControllerImpl } from './impl/controller/bw/ub/stripehiv/module/objective/web/search/objective-search-controller-impl';
+import { ObjectiveEditControllerImpl } from './impl/controller/bw/ub/stripehiv/module/objective/web/edit/objective-edit-controller-impl';
 import { ModuleSearchControllerImpl } from './impl/controller/bw/ub/stripehiv/module/web/search/module-search-controller-impl';
+import { ModuleEditControllerImpl } from './impl/controller/bw/ub/stripehiv/module/web/edit/module-edit-controller-impl';
 
-import { EditModuleImplComponent } from './impl/view/bw/ub/stripehiv/module/web/edit/edit-module.impl.component';
+import { EditObjectiveImplComponent } from './impl/view/bw/ub/stripehiv/module/objective/web/edit/edit-objective.impl.component';
 import { SearchModulesImplComponent } from './impl/view/bw/ub/stripehiv/module/web/search/search-modules.impl.component';
+import { EditModuleImplComponent } from './impl/view/bw/ub/stripehiv/module/web/edit/edit-module.impl.component';
+import { SearchObjectivesImplComponent } from './impl/view/bw/ub/stripehiv/module/objective/web/search/search-objectives.impl.component';
 
 import { SearchModulesModulesImplComponent } from './impl/view/bw/ub/stripehiv/module/web/search/search-modules-modules.impl.component';
+import { SearchObjectivesObjectivesImplComponent } from './impl/view/bw/ub/stripehiv/module/objective/web/search/search-objectives-objectives.impl.component';
 
-import { EditModuleSaveImplComponent } from './impl/view//bw/ub/stripehiv/module/web/edit/edit-module-save.impl.component';
+import { EditObjectiveNewImplComponent } from './impl/view//bw/ub/stripehiv/module/objective/web/edit/edit-objective-new.impl.component';
 import { EditModuleNewImplComponent } from './impl/view//bw/ub/stripehiv/module/web/edit/edit-module-new.impl.component';
 import { SearchModulesSearchImplComponent } from './impl/view//bw/ub/stripehiv/module/web/search/search-modules-search.impl.component';
+import { EditModuleSaveImplComponent } from './impl/view//bw/ub/stripehiv/module/web/edit/edit-module-save.impl.component';
+import { SearchObjectivesSearchImplComponent } from './impl/view//bw/ub/stripehiv/module/objective/web/search/search-objectives-search.impl.component';
+import { EditObjectiveSaveImplComponent } from './impl/view//bw/ub/stripehiv/module/objective/web/edit/edit-objective-save.impl.component';
 
-import { ModuleVO } from './gen/model/bw/ub/stripehiv/module/vo/module-vo';
 import { ModuleSearchCriteria } from './gen/model/bw/ub/stripehiv/module/vo/module-search-criteria';
+import { ObjectiveVO } from './gen/model/bw/ub/stripehiv/module/objective/vo/objective-vo';
+import { ObjectiveSearchCriteria } from './gen/model/bw/ub/stripehiv/module/objective/vo/objective-search-criteria';
+import { ModuleVO } from './gen/model/bw/ub/stripehiv/module/vo/module-vo';
 
 @NgModule({
     declarations: [
@@ -67,14 +78,20 @@ import { ModuleSearchCriteria } from './gen/model/bw/ub/stripehiv/module/vo/modu
         StripehivHeaderComponent,
         StripehivNavigationComponent,
 
-        EditModuleImplComponent,
+        EditObjectiveImplComponent,
         SearchModulesImplComponent,
+        EditModuleImplComponent,
+        SearchObjectivesImplComponent,
 
         SearchModulesModulesImplComponent,
+        SearchObjectivesObjectivesImplComponent,
 
-        EditModuleSaveImplComponent,
+        EditObjectiveNewImplComponent,
         EditModuleNewImplComponent,
-        SearchModulesSearchImplComponent
+        SearchModulesSearchImplComponent,
+        EditModuleSaveImplComponent,
+        SearchObjectivesSearchImplComponent,
+        EditObjectiveSaveImplComponent
 
     ],
     imports: [
@@ -129,22 +146,33 @@ import { ModuleSearchCriteria } from './gen/model/bw/ub/stripehiv/module/vo/modu
         MatTooltipModule
     ],
     providers: [
-        ModuleVO,
         ModuleSearchCriteria,
+        ObjectiveVO,
+        ObjectiveSearchCriteria,
+        ModuleVO,
 
+        ObjectiveServiceImpl,
         ModuleServiceImpl,
 
-        ModuleEditControllerImpl,
+        ObjectiveSearchControllerImpl,
+        ObjectiveEditControllerImpl,
         ModuleSearchControllerImpl,
+        ModuleEditControllerImpl,
 
-        EditModuleImplComponent,
+        EditObjectiveImplComponent,
         SearchModulesImplComponent,
+        EditModuleImplComponent,
+        SearchObjectivesImplComponent,
 
         SearchModulesModulesImplComponent,
+        SearchObjectivesObjectivesImplComponent,
 
-        EditModuleSaveImplComponent,
+        EditObjectiveNewImplComponent,
         EditModuleNewImplComponent,
-        SearchModulesSearchImplComponent
+        SearchModulesSearchImplComponent,
+        EditModuleSaveImplComponent,
+        SearchObjectivesSearchImplComponent,
+        EditObjectiveSaveImplComponent
 
     ],
     bootstrap: [StripehivComponent]

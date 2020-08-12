@@ -13,7 +13,7 @@ export class ObjectiveServiceImpl extends ObjectiveService {
     }
 
     public saveObjective(objectiveVO: ObjectiveVO): Observable<ObjectiveVO> {
-        return this.http.post<ObjectiveVO>(this.path + '/saveobjective/', objectiveVO);
+        return this.http.post<ObjectiveVO>(this.path + '/saveobjective/objectiveVO/', objectiveVO);
     }
 
     public removeObjective(id: number): Observable<boolean> {

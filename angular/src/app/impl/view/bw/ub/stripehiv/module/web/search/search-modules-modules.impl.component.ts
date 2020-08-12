@@ -17,11 +17,13 @@ export class SearchModulesModulesImplComponent extends SearchModulesModulesCompo
 	}
 	
 	afterOnInit() {
-	}	
+	}
+
+  doNgAfterViewInit() {
+    
+  }
+
 
 	doSearchModulesEdit(id: number): any {
-  }
-  
-  doNgAfterViewInit() {
-  }
+	}
 }

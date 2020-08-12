@@ -8,18 +8,30 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { SearchObjectivesImplComponent } from './impl/view/bw/ub/stripehiv/module/objective/web/search/search-objectives.impl.component';
+import { SearchObjectivesObjectivesImplComponent } from './impl/view/bw/ub/stripehiv/module/objective/web/search/search-objectives-objectives.impl.component';
+import { SearchObjectivesSearchImplComponent } from './impl/view//bw/ub/stripehiv/module/objective/web/search/search-objectives-search.impl.component';
 import { SearchModulesImplComponent } from './impl/view/bw/ub/stripehiv/module/web/search/search-modules.impl.component';
 import { SearchModulesModulesImplComponent } from './impl/view/bw/ub/stripehiv/module/web/search/search-modules-modules.impl.component';
+import { EditObjectiveImplComponent } from './impl/view/bw/ub/stripehiv/module/objective/web/edit/edit-objective.impl.component';
+import { EditObjectiveSaveImplComponent } from './impl/view//bw/ub/stripehiv/module/objective/web/edit/edit-objective-save.impl.component';
 import { EditModuleSaveImplComponent } from './impl/view//bw/ub/stripehiv/module/web/edit/edit-module-save.impl.component';
 import { EditModuleImplComponent } from './impl/view/bw/ub/stripehiv/module/web/edit/edit-module.impl.component';
+import { EditObjectiveNewImplComponent } from './impl/view//bw/ub/stripehiv/module/objective/web/edit/edit-objective-new.impl.component';
 import { SearchModulesSearchImplComponent } from './impl/view//bw/ub/stripehiv/module/web/search/search-modules-search.impl.component';
 import { EditModuleNewImplComponent } from './impl/view//bw/ub/stripehiv/module/web/edit/edit-module-new.impl.component';
 
 const routes: Routes = [
+    { path: 'editobjectivesave', component: EditObjectiveSaveImplComponent },
+    { path: 'editobjectivenew', component: EditObjectiveNewImplComponent },
+    { path: 'searchobjectivessearch', component: SearchObjectivesSearchImplComponent },
     { path: 'editmodulenew', component: EditModuleNewImplComponent },
     { path: 'editmodule', component: EditModuleImplComponent },
     { path: 'searchmodulesmodules', component: SearchModulesModulesImplComponent },
+    { path: 'searchobjectives', component: SearchObjectivesImplComponent },
+    { path: 'editobjective', component: EditObjectiveImplComponent },
     { path: 'editmodulesave', component: EditModuleSaveImplComponent },
+    { path: 'searchobjectivesobjectives', component: SearchObjectivesObjectivesImplComponent },
     { path: 'searchmodulessearch', component: SearchModulesSearchImplComponent },
     { path: 'searchmodules', component: SearchModulesImplComponent }
 ];

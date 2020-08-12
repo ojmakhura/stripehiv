@@ -8,6 +8,10 @@ package bw.ub.stripehiv.user;
 
 import bw.ub.stripehiv.Search;
 import bw.ub.stripehiv.SearchParameter;
+import bw.ub.stripehiv.role.Role;
+import bw.ub.stripehiv.role.vo.RoleVO;
+import bw.ub.stripehiv.user.progress.ModuleProgress;
+import bw.ub.stripehiv.user.progress.vo.ModuleProgressVO;
 import bw.ub.stripehiv.user.vo.UserSearchCriteria;
 import bw.ub.stripehiv.user.vo.UserVO;
 
@@ -21,6 +25,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -43,6 +48,28 @@ public class UserDaoImpl
         // WARNING! No conversion for target.dateOfBirth (can't convert source.getDateOfBirth():java.util.Date to java.util.Date
         if(source.getDateOfBirth() != null) {
         	target.setDateOfBirth(source.getDateOfBirth());
+        }
+        
+        if(!CollectionUtils.isEmpty(source.getModuleProgresses())) {
+        	List<ModuleProgressVO> progresses = new ArrayList<ModuleProgressVO>();
+        	
+        	for(ModuleProgress progress : source.getModuleProgresses()) {
+        		progresses.add(getModuleProgressDao().toModuleProgressVO(progress));
+        	}
+        	
+        	target.setModuleProgresses(progresses);
+        }
+        
+        if(!CollectionUtils.isEmpty(source.getRoles())) {
+        	if(target.getRoles() != null) {
+        		target.getRoles().clear();
+        	} else {
+        		target.setRoles(new ArrayList<RoleVO>());
+        	}
+        	
+        	for(Role role : source.getRoles()) {
+        		target.getRoles().add(getRoleDao().toRoleVO(role));
+        	}
         }
     }
 
@@ -98,6 +125,30 @@ public class UserDaoImpl
         // No conversion for target.dateOfBirth (can't convert source.getDateOfBirth():java.util.Date to java.util.Date
         if(source.getDateOfBirth() != null) {
         	target.setDateOfBirth(source.getDateOfBirth());
+        }
+        
+        if(!CollectionUtils.isEmpty(source.getModuleProgresses())) {
+        	if(target.getModuleProgresses() != null) {
+        		target.getModuleProgresses().clear();
+        	} else {
+        		target.setModuleProgresses(new ArrayList<ModuleProgress>());
+        	}
+        	
+        	for(ModuleProgressVO progress : source.getModuleProgresses()) {
+        		target.getModuleProgresses().add(getModuleProgressDao().moduleProgressVOToEntity(progress));
+        	}
+        }
+        
+        if(!CollectionUtils.isEmpty(source.getRoles())) {
+        	if(target.getRoles() != null) {
+        		target.getRoles().clear();
+        	} else {
+        		target.setRoles(new ArrayList<Role>());
+        	}
+        	
+        	for(RoleVO role : source.getRoles()) {
+        		target.getRoles().add(getRoleDao().roleVOToEntity(role));
+        	}
         }
     }
 

@@ -3,15 +3,8 @@
 	<div class="card my-5">
 		<edit-module-save 
 			[editModuleForm] = "editModuleForm"
-			(moduleVO) = "setModuleVO($event)"
+			(saveModuleVO) = "setSaveModuleVO($event)"
 		>
 		</edit-module-save>
-	</div>
-	<div class="card my-5">
-		<edit-module-new 
-			[editModuleForm] = "editModuleForm"
-			(moduleVO) = "setModuleVO($event)"
-		>
-		</edit-module-new>
 	</div>
 </div>

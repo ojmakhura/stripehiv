@@ -9,22 +9,24 @@ import { EditModuleNewComponent } from 'src/app/gen/view/bw/ub/stripehiv/module/
 })
 export class EditModuleNewImplComponent extends EditModuleNewComponent {
 
-    constructor(private injector: Injector) {
-        super(injector);
-    }
+  constructor(private injector: Injector) {
+      super(injector);
+  }
 
-    beforeOnInit(){
-    }
+  beforeOnInit(){
+  }
 	
-    afterOnInit() {
-    }
+  afterOnInit() {
+  }
 
-    doEditModuleNew() {
-    }
+  doNgAfterViewInit() {
+    
+  }
 
-    afterEditModuleNew() {
-    }
 
-    doNgAfterViewInit() {
-    }
+  afterEditModuleNew() {    
+  }
+
+  doEditModuleNew() {
+  }
 }

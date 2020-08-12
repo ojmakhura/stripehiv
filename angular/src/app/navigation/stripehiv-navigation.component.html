@@ -2,6 +2,8 @@
     <div>
 		<button mat-button [matMenuTriggerFor]="appMenu">Application Menu</button>
 		<mat-menu #appMenu="matMenu">
+            <button mat-menu-item routerLink="/editobjective" (click)="onSidenavClose()">Edit Objective</button>
+            <button mat-menu-item routerLink="/searchobjectives" (click)="onSidenavClose()">Search Objectives</button>
             <button mat-menu-item routerLink="/editmodule" (click)="onSidenavClose()">Edit Module</button>
             <button mat-menu-item routerLink="/searchmodules" (click)="onSidenavClose()">Search Modules</button>
         </mat-menu>

@@ -35,6 +35,14 @@ public class ModuleServiceImpl
     protected  ModuleVO handleSaveModule(ModuleVO moduleVO)
         throws Exception
     {
+    	if(moduleVO.getNextModule() != null && moduleVO.getNextModule().getId() == null) {
+    		moduleVO.setNextModule(null);
+    	}
+    	
+    	if(moduleVO.getPreviousModule() != null && moduleVO.getPreviousModule().getId() == null) {
+    		moduleVO.setPreviousModule(null);
+    	}
+    	
     	Module module = getModuleDao().moduleVOToEntity(moduleVO);
         if(moduleVO.getId() == null) {
         	module = getModuleDao().create(module);

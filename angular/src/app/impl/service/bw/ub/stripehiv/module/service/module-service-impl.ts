@@ -3,8 +3,8 @@ import { Injectable, Injector } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ModuleService } from 'src/app/gen/service/bw/ub/stripehiv/module/service/module-service';
-import { ModuleVO } from 'src/app/gen/model/bw/ub/stripehiv/module/vo/module-vo';
 import { ModuleSearchCriteria } from 'src/app/gen/model/bw/ub/stripehiv/module/vo/module-search-criteria';
+import { ModuleVO } from 'src/app/gen/model/bw/ub/stripehiv/module/vo/module-vo';
 
 @Injectable()
 export class ModuleServiceImpl extends ModuleService {
@@ -18,7 +18,7 @@ export class ModuleServiceImpl extends ModuleService {
     }
 
     public removeModule(id: number): Observable<boolean> {
-        return this.http.delete<boolean>(this.path + '/delete/id/' + id);
+        return this.http.delete<boolean>(this.path + '/delete' + id);
     }
 
     public searchModules(searchCriteria: ModuleSearchCriteria): Observable<ModuleVO[]> {
@@ -26,7 +26,7 @@ export class ModuleServiceImpl extends ModuleService {
     }
 
     public findById(id: number): Observable<ModuleVO> {
-        return this.http.get<ModuleVO>(this.path + '/find/id/' + id);
+        return this.http.get<ModuleVO>(this.path + '/find' + id);
     }
 
     public getAllModules(): Observable<ModuleVO[]> {

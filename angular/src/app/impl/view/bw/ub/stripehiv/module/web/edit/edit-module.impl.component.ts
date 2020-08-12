@@ -8,6 +8,7 @@ import { EditModuleComponent } from 'src/app/gen/view/bw/ub/stripehiv/module/web
   styleUrls: ['./edit-module.component.css']
 })
 export class EditModuleImplComponent extends EditModuleComponent {
+
     constructor(private injector: Injector) {
         super(injector);
     }
@@ -18,11 +19,10 @@ export class EditModuleImplComponent extends EditModuleComponent {
     afterOnInit() {
     }
 
-    handleFormChanges() {
-    }
-
     doNgAfterViewInit() {
       
     }
 
+    handleFormChanges(change: any) {
+    }
 }

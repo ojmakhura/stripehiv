@@ -36,7 +36,6 @@ public class ObjectiveDaoImpl
         	module.setCode(source.getModule().getCode());
         	module.setDescription(source.getModule().getDescription());
         	module.setModuleName(source.getModule().getModuleName());
-        	module.setModuleStatus(source.getModule().getModuleStatus());
         	
         	target.setModule(module);
         }
