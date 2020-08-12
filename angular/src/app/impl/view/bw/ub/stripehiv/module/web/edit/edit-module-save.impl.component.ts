@@ -19,11 +19,14 @@ export class EditModuleSaveImplComponent extends EditModuleSaveComponent {
     if(localStorage.getItem('moduleVOBackingList')) 
     {
       console.log(localStorage.getItem('moduleVOBackingList'));
-      
-      this.moduleVOBackingList = JSON.parse(localStorage.getItem('moduleVOBackingList'));
-      this.moduleVONextModuleBackingList = this.moduleVOBackingList;
-      this.moduleVOPreviousModuleBackingList = this.moduleVOBackingList;
-      localStorage.removeItem('moduleVOBackingList');
+
+      this.moduleService.getAllModules().subscribe(
+        result => {
+          this.moduleVOBackingList = result;
+          this.moduleVONextModuleBackingList = this.moduleVOBackingList;
+          this.moduleVOPreviousModuleBackingList = this.moduleVOBackingList;
+        }
+      );
     }
   }
 	

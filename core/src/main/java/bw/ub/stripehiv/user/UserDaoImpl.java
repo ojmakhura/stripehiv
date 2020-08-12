@@ -182,4 +182,10 @@ public class UserDaoImpl
 		
 		return this.search(search);
 	}
+
+	@Override
+	protected Collection<User> handleFindUsersByRole(RoleVO role) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

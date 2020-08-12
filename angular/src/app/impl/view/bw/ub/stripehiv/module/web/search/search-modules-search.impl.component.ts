@@ -28,5 +28,7 @@ export class SearchModulesSearchImplComponent extends SearchModulesSearchCompone
   }
 
   doSearchModulesSearch() {
+    let form = JSON.parse(localStorage.getItem('searchModulesSearchModulesSearchForm'));
+    this.modules.emit(form.modules);
   }
 }

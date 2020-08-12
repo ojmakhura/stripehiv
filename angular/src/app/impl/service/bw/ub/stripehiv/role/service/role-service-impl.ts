@@ -13,11 +13,11 @@ export class RoleServiceImpl extends RoleService {
     }
 
     public saveRole(roleVO: RoleVO): Observable<RoleVO> {
-        return this.http.post<RoleVO>(this.path + '/saverole/roleVO/', roleVO);
+        return this.http.post<RoleVO>(this.path + '/save', roleVO);
     }
 
     public removeRole(id: number): Observable<boolean> {
-        return this.http.delete<boolean>(this.path + '/removerole/id/' + id);
+        return this.http.delete<boolean>(this.path + '/delete/' + id);
     }
 
     public findByCode(code: string): Observable<RoleVO> {
@@ -25,7 +25,7 @@ export class RoleServiceImpl extends RoleService {
     }
 
     public findById(id: number): Observable<RoleVO> {
-        return this.http.get<RoleVO>(this.path + '/findbyid/id/' + id);
+        return this.http.get<RoleVO>(this.path + '/find/id/' + id);
     }
 
 }

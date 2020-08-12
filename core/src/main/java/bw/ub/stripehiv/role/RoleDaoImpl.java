@@ -7,6 +7,12 @@
 package bw.ub.stripehiv.role;
 
 import bw.ub.stripehiv.role.vo.RoleVO;
+import bw.ub.stripehiv.user.User;
+import bw.ub.stripehiv.user.vo.UserVO;
+
+import java.util.ArrayList;
+
+import org.hibernate.mapping.Array;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -26,6 +32,25 @@ public class RoleDaoImpl
     {
         // TODO verify behavior of toRoleVO
         super.toRoleVO(source, target);
+        
+        if(target.getUsers() == null) {
+        	target.setUsers(new ArrayList<UserVO>());
+        }
+        
+        for(User user : source.getUsers()) {
+        	
+        	UserVO vo = new UserVO();
+        	vo.setId(user.getId());
+        	vo.setDateOfBirth(user.getDateOfBirth());
+        	vo.setUsername(user.getUsername());
+        	vo.setFirstName(user.getFirstName());
+        	vo.setSurname(user.getUsername());
+        	vo.setMiddleName(user.getMiddleName());
+        	vo.setStatus(user.getStatus());
+        	
+        	target.getUsers().add(vo);
+        }
+        
     }
 
     /**
@@ -45,10 +70,7 @@ public class RoleDaoImpl
      */
     private Role loadRoleFromRoleVO(RoleVO roleVO)
     {
-        // TODO implement loadRoleFromRoleVO
-        throw new UnsupportedOperationException("bw.ub.stripehiv.role.loadRoleFromRoleVO(RoleVO) not yet implemented.");
 
-        /* A typical implementation looks like this:
         if (roleVO.getId() == null)
         {
             return  Role.Factory.newInstance();
@@ -57,7 +79,6 @@ public class RoleDaoImpl
         {
             return this.load(roleVO.getId());
         }
-        */
     }
 
     /**
@@ -68,6 +89,17 @@ public class RoleDaoImpl
         // TODO verify behavior of roleVOToEntity
         Role entity = this.loadRoleFromRoleVO(roleVO);
         this.roleVOToEntity(roleVO, entity, true);
+        
+        if(entity.getUsers() == null) {
+        	entity.setUsers(new ArrayList<User>());
+        }
+        
+        for(UserVO vo : roleVO.getUsers()) {
+        	if(vo.getId() != null) {
+        		entity.getUsers().add(getUserDao().load(vo.getId()));
+        	}
+        }
+        
         return entity;
     }
 

@@ -2,10 +2,14 @@
     <div>
 		<button mat-button [matMenuTriggerFor]="appMenu">Application Menu</button>
 		<mat-menu #appMenu="matMenu">
+            <button mat-menu-item routerLink="/edituser" (click)="onSidenavClose()">Edit User</button>
+            <button mat-menu-item routerLink="/searchusers" (click)="onSidenavClose()">Search Users</button>
             <button mat-menu-item routerLink="/editobjective" (click)="onSidenavClose()">Edit Objective</button>
             <button mat-menu-item routerLink="/searchobjectives" (click)="onSidenavClose()">Search Objectives</button>
             <button mat-menu-item routerLink="/editmodule" (click)="onSidenavClose()">Edit Module</button>
             <button mat-menu-item routerLink="/searchmodules" (click)="onSidenavClose()">Search Modules</button>
+            <button mat-menu-item routerLink="/editrole" (click)="onSidenavClose()">Edit Role</button>
+            <button mat-menu-item routerLink="/searchroles" (click)="onSidenavClose()">Search Roles</button>
         </mat-menu>
     </div>
 </mat-nav-list>

@@ -8,32 +8,58 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { EditUserNewImplComponent } from './impl/view//bw/ub/stripehiv/user/web/edit/edit-user-new.impl.component';
+import { EditRoleImplComponent } from './impl/view/bw/ub/stripehiv/role/web/edit/edit-role.impl.component';
+import { EditUserImplComponent } from './impl/view/bw/ub/stripehiv/user/web/edit/edit-user.impl.component';
+import { SearchModulesImplComponent } from './impl/view/bw/ub/stripehiv/module/web/search/search-modules.impl.component';
+import { EditObjectiveImplComponent } from './impl/view/bw/ub/stripehiv/module/objective/web/edit/edit-objective.impl.component';
+import { SearchRolesImplComponent } from './impl/view/bw/ub/stripehiv/role/web/search/search-roles.impl.component';
+import { EditModuleImplComponent } from './impl/view/bw/ub/stripehiv/module/web/edit/edit-module.impl.component';
+import { SearchModulesSearchImplComponent } from './impl/view//bw/ub/stripehiv/module/web/search/search-modules-search.impl.component';
+import { EditRoleSaveImplComponent } from './impl/view//bw/ub/stripehiv/role/web/edit/edit-role-save.impl.component';
+import { EditModuleSaveImplComponent } from './impl/view//bw/ub/stripehiv/module/web/edit/edit-module-save.impl.component';
+import { SearchUsersEditImplComponent } from './impl/view//bw/ub/stripehiv/user/web/search/search-users-edit.impl.component';
+import { SearchUsersUsersImplComponent } from './impl/view/bw/ub/stripehiv/user/web/search/search-users-users.impl.component';
 import { SearchObjectivesImplComponent } from './impl/view/bw/ub/stripehiv/module/objective/web/search/search-objectives.impl.component';
 import { SearchObjectivesObjectivesImplComponent } from './impl/view/bw/ub/stripehiv/module/objective/web/search/search-objectives-objectives.impl.component';
+import { EditRoleNewImplComponent } from './impl/view//bw/ub/stripehiv/role/web/edit/edit-role-new.impl.component';
+import { SearchRolesRolesImplComponent } from './impl/view/bw/ub/stripehiv/role/web/search/search-roles-roles.impl.component';
 import { SearchObjectivesSearchImplComponent } from './impl/view//bw/ub/stripehiv/module/objective/web/search/search-objectives-search.impl.component';
-import { SearchModulesImplComponent } from './impl/view/bw/ub/stripehiv/module/web/search/search-modules.impl.component';
+import { SearchRolesSearchImplComponent } from './impl/view//bw/ub/stripehiv/role/web/search/search-roles-search.impl.component';
 import { SearchModulesModulesImplComponent } from './impl/view/bw/ub/stripehiv/module/web/search/search-modules-modules.impl.component';
-import { EditObjectiveImplComponent } from './impl/view/bw/ub/stripehiv/module/objective/web/edit/edit-objective.impl.component';
-import { EditObjectiveSaveImplComponent } from './impl/view//bw/ub/stripehiv/module/objective/web/edit/edit-objective-save.impl.component';
-import { EditModuleSaveImplComponent } from './impl/view//bw/ub/stripehiv/module/web/edit/edit-module-save.impl.component';
-import { EditModuleImplComponent } from './impl/view/bw/ub/stripehiv/module/web/edit/edit-module.impl.component';
-import { EditObjectiveNewImplComponent } from './impl/view//bw/ub/stripehiv/module/objective/web/edit/edit-objective-new.impl.component';
-import { SearchModulesSearchImplComponent } from './impl/view//bw/ub/stripehiv/module/web/search/search-modules-search.impl.component';
+import { EditUserSaveImplComponent } from './impl/view//bw/ub/stripehiv/user/web/edit/edit-user-save.impl.component';
+import { SearchUsersSearchImplComponent } from './impl/view//bw/ub/stripehiv/user/web/search/search-users-search.impl.component';
 import { EditModuleNewImplComponent } from './impl/view//bw/ub/stripehiv/module/web/edit/edit-module-new.impl.component';
+import { SearchUsersImplComponent } from './impl/view/bw/ub/stripehiv/user/web/search/search-users.impl.component';
+import { EditObjectiveSaveImplComponent } from './impl/view//bw/ub/stripehiv/module/objective/web/edit/edit-objective-save.impl.component';
+import { EditObjectiveNewImplComponent } from './impl/view//bw/ub/stripehiv/module/objective/web/edit/edit-objective-new.impl.component';
 
 const routes: Routes = [
-    { path: 'editobjectivesave', component: EditObjectiveSaveImplComponent },
-    { path: 'editobjectivenew', component: EditObjectiveNewImplComponent },
-    { path: 'searchobjectivessearch', component: SearchObjectivesSearchImplComponent },
-    { path: 'editmodulenew', component: EditModuleNewImplComponent },
-    { path: 'editmodule', component: EditModuleImplComponent },
-    { path: 'searchmodulesmodules', component: SearchModulesModulesImplComponent },
-    { path: 'searchobjectives', component: SearchObjectivesImplComponent },
+    { path: 'searchuserssearch', component: SearchUsersSearchImplComponent },
+    { path: 'searchusersusers', component: SearchUsersUsersImplComponent },
     { path: 'editobjective', component: EditObjectiveImplComponent },
-    { path: 'editmodulesave', component: EditModuleSaveImplComponent },
+    { path: 'editobjectivesave', component: EditObjectiveSaveImplComponent },
+    { path: 'editrolesave', component: EditRoleSaveImplComponent },
+    { path: 'edituser', component: EditUserImplComponent },
+    { path: 'searchrolesroles', component: SearchRolesRolesImplComponent },
+    { path: 'searchmodulesmodules', component: SearchModulesModulesImplComponent },
+    { path: 'searchusersedit', component: SearchUsersEditImplComponent },
+    { path: 'searchobjectives', component: SearchObjectivesImplComponent },
+    { path: 'searchmodules', component: SearchModulesImplComponent },
+    { path: 'searchobjectivessearch', component: SearchObjectivesSearchImplComponent },
+    { path: 'editusernew', component: EditUserNewImplComponent },
+    { path: 'editmodule', component: EditModuleImplComponent },
+    { path: 'searchusers', component: SearchUsersImplComponent },
     { path: 'searchobjectivesobjectives', component: SearchObjectivesObjectivesImplComponent },
-    { path: 'searchmodulessearch', component: SearchModulesSearchImplComponent },
-    { path: 'searchmodules', component: SearchModulesImplComponent }
+    { path: 'searchrolessearch', component: SearchRolesSearchImplComponent },
+    { path: 'editrole', component: EditRoleImplComponent },
+    { path: 'editusersave', component: EditUserSaveImplComponent },
+    { path: 'editobjectivenew', component: EditObjectiveNewImplComponent },
+    { path: 'editmodulenew', component: EditModuleNewImplComponent },
+    { path: 'searchroles', component: SearchRolesImplComponent },
+    { path: 'editmodulesave', component: EditModuleSaveImplComponent },
+    { path: 'editrolenew', component: EditRoleNewImplComponent },
+    { path: 'searchmodulessearch', component: SearchModulesSearchImplComponent }
 ];
 
 @NgModule({

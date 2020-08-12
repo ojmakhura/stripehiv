@@ -9,7 +9,11 @@
  */
 package bw.ub.stripehiv.role.service;
 
+import bw.ub.stripehiv.role.Role;
+import bw.ub.stripehiv.role.RoleType;
 import bw.ub.stripehiv.role.vo.RoleVO;
+
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,8 +34,11 @@ public class RoleServiceImpl
     protected  RoleVO handleSaveRole(RoleVO roleVO)
         throws Exception
     {
-        // TODO implement protected  RoleVO handleSaveRole(RoleVO roleVO)
-        throw new UnsupportedOperationException("bw.ub.stripehiv.role.service.RoleService.handleSaveRole(RoleVO roleVO) Not implemented!");
+        Role role = getRoleDao().roleVOToEntity(roleVO);
+        
+        role = getRoleDao().createOrUpdate(role);
+        
+        return getRoleDao().toRoleVO(role);
     }
 
     /**
@@ -41,8 +48,13 @@ public class RoleServiceImpl
     protected  Boolean handleRemoveRole(Long id)
         throws Exception
     {
-        // TODO implement protected  Boolean handleRemoveRole(Long id)
-        throw new UnsupportedOperationException("bw.ub.stripehiv.role.service.RoleService.handleRemoveRole(Long id) Not implemented!");
+        if(id == null) {
+        	return false;
+        }
+        
+        getRoleDao().remove(id);
+        
+        return true;
     }
 
     /**
@@ -52,8 +64,13 @@ public class RoleServiceImpl
     protected  RoleVO handleFindByCode(String code)
         throws Exception
     {
-        // TODO implement protected  RoleVO handleFindByCode(String code)
-        throw new UnsupportedOperationException("bw.ub.stripehiv.role.service.RoleService.handleFindByCode(String code) Not implemented!");
+        if(StringUtils.isBlank(code)) {
+        	return new RoleVO();
+        }
+        
+        
+        Role role = getRoleDao().searchUniqueCode(RoleType.fromValue(code));
+        return getRoleDao().toRoleVO(role);
     }
 
     /**
@@ -63,8 +80,12 @@ public class RoleServiceImpl
     protected  RoleVO handleFindById(Long id)
         throws Exception
     {
-        // TODO implement protected  RoleVO handleFindById(Long id)
-        throw new UnsupportedOperationException("bw.ub.stripehiv.role.service.RoleService.handleFindById(Long id) Not implemented!");
+    	if(id == null) {
+    		return new RoleVO();
+    	}
+    	
+    	return getRoleDao().toRoleVO(getRoleDao().load(id));
+    	
     }
 
 }
