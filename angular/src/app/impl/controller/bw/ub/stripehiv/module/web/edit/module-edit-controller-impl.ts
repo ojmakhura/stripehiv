@@ -34,11 +34,10 @@ export class ModuleEditControllerImpl extends ModuleEditController {
 				module => {
 					console.log(module);
 					form = EditModuleViewPopulator.populateEditModuleSaveFormWithEditModuleSaveForm(form, form);
-					localStorage.setItem('editModuleEditModuleSaveForm', JSON.stringify(form))
+					localStorage.setItem('editModuleEditModuleSaveForm', JSON.stringify(form));
 				},
 				error => {
 					console.log('Error occured: ', error);
-					
 				}
 			);
 		}

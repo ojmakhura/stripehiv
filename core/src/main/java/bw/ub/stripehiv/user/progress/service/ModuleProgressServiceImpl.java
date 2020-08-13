@@ -9,6 +9,7 @@
  */
 package bw.ub.stripehiv.user.progress.service;
 
+import bw.ub.stripehiv.user.progress.ModuleProgress;
 import bw.ub.stripehiv.user.progress.vo.ModuleProgressVO;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -25,14 +26,22 @@ public class ModuleProgressServiceImpl
 
 	@Override
 	protected ModuleProgressVO handleSaveModuleProgress(ModuleProgressVO moduleProgressVO) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		
+		ModuleProgress progress = getModuleProgressDao().moduleProgressVOToEntity(moduleProgressVO);
+		progress = getModuleProgressDao().createOrUpdate(progress);
+		return getModuleProgressDao().toModuleProgressVO(progress);
 	}
 
 	@Override
 	protected Boolean handleRemoveModuleProgress(Long id) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		
+		if(id == null) {
+			return false;
+		}
+		
+		getModuleProgressDao().remove(id);
+		
+		return true;
 	}
 
     

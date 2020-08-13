@@ -43,56 +43,56 @@ import { StripehivNavigationComponent } from './navigation/stripehiv-navigation.
 import { StripehivRoutingModule } from './stripehiv-routing.module';
 import { StripehivComponent } from './stripehiv.component';
 
-import { UserServiceImpl } from './impl/service/bw/ub/stripehiv/user/service/user-service-impl';
-import { ObjectiveServiceImpl } from './impl/service/bw/ub/stripehiv/module/objective/service/objective-service-impl';
 import { RoleServiceImpl } from './impl/service/bw/ub/stripehiv/role/service/role-service-impl';
+import { ObjectiveServiceImpl } from './impl/service/bw/ub/stripehiv/module/objective/service/objective-service-impl';
+import { UserServiceImpl } from './impl/service/bw/ub/stripehiv/user/service/user-service-impl';
 import { ModuleServiceImpl } from './impl/service/bw/ub/stripehiv/module/service/module-service-impl';
 
 import { ObjectiveSearchControllerImpl } from './impl/controller/bw/ub/stripehiv/module/objective/web/search/objective-search-controller-impl';
-import { ModuleSearchControllerImpl } from './impl/controller/bw/ub/stripehiv/module/web/search/module-search-controller-impl';
-import { ModuleEditControllerImpl } from './impl/controller/bw/ub/stripehiv/module/web/edit/module-edit-controller-impl';
-import { UserEditControllerImpl } from './impl/controller/bw/ub/stripehiv/user/web/edit/user-edit-controller-impl';
 import { RoleEditControllerImpl } from './impl/controller/bw/ub/stripehiv/role/web/edit/role-edit-controller-impl';
-import { UserSearchControllerImpl } from './impl/controller/bw/ub/stripehiv/user/web/search/user-search-controller-impl';
-import { RoleSearchControllerImpl } from './impl/controller/bw/ub/stripehiv/role/web/search/role-search-controller-impl';
 import { ObjectiveEditControllerImpl } from './impl/controller/bw/ub/stripehiv/module/objective/web/edit/objective-edit-controller-impl';
+import { UserSearchControllerImpl } from './impl/controller/bw/ub/stripehiv/user/web/search/user-search-controller-impl';
+import { ModuleEditControllerImpl } from './impl/controller/bw/ub/stripehiv/module/web/edit/module-edit-controller-impl';
+import { ModuleSearchControllerImpl } from './impl/controller/bw/ub/stripehiv/module/web/search/module-search-controller-impl';
+import { UserEditControllerImpl } from './impl/controller/bw/ub/stripehiv/user/web/edit/user-edit-controller-impl';
+import { RoleSearchControllerImpl } from './impl/controller/bw/ub/stripehiv/role/web/search/role-search-controller-impl';
 
-import { SearchRolesImplComponent } from './impl/view/bw/ub/stripehiv/role/web/search/search-roles.impl.component';
 import { EditUserImplComponent } from './impl/view/bw/ub/stripehiv/user/web/edit/edit-user.impl.component';
-import { EditObjectiveImplComponent } from './impl/view/bw/ub/stripehiv/module/objective/web/edit/edit-objective.impl.component';
-import { EditRoleImplComponent } from './impl/view/bw/ub/stripehiv/role/web/edit/edit-role.impl.component';
-import { SearchUsersImplComponent } from './impl/view/bw/ub/stripehiv/user/web/search/search-users.impl.component';
 import { SearchObjectivesImplComponent } from './impl/view/bw/ub/stripehiv/module/objective/web/search/search-objectives.impl.component';
+import { SearchUsersImplComponent } from './impl/view/bw/ub/stripehiv/user/web/search/search-users.impl.component';
+import { EditRoleImplComponent } from './impl/view/bw/ub/stripehiv/role/web/edit/edit-role.impl.component';
 import { SearchModulesImplComponent } from './impl/view/bw/ub/stripehiv/module/web/search/search-modules.impl.component';
 import { EditModuleImplComponent } from './impl/view/bw/ub/stripehiv/module/web/edit/edit-module.impl.component';
+import { EditObjectiveImplComponent } from './impl/view/bw/ub/stripehiv/module/objective/web/edit/edit-objective.impl.component';
+import { SearchRolesImplComponent } from './impl/view/bw/ub/stripehiv/role/web/search/search-roles.impl.component';
 
-import { SearchRolesRolesImplComponent } from './impl/view/bw/ub/stripehiv/role/web/search/search-roles-roles.impl.component';
 import { SearchUsersUsersImplComponent } from './impl/view/bw/ub/stripehiv/user/web/search/search-users-users.impl.component';
 import { SearchModulesModulesImplComponent } from './impl/view/bw/ub/stripehiv/module/web/search/search-modules-modules.impl.component';
 import { SearchObjectivesObjectivesImplComponent } from './impl/view/bw/ub/stripehiv/module/objective/web/search/search-objectives-objectives.impl.component';
+import { SearchRolesRolesImplComponent } from './impl/view/bw/ub/stripehiv/role/web/search/search-roles-roles.impl.component';
 
-import { EditUserSaveImplComponent } from './impl/view//bw/ub/stripehiv/user/web/edit/edit-user-save.impl.component';
-import { EditObjectiveNewImplComponent } from './impl/view//bw/ub/stripehiv/module/objective/web/edit/edit-objective-new.impl.component';
-import { SearchObjectivesSearchImplComponent } from './impl/view//bw/ub/stripehiv/module/objective/web/search/search-objectives-search.impl.component';
-import { EditModuleSaveImplComponent } from './impl/view//bw/ub/stripehiv/module/web/edit/edit-module-save.impl.component';
-import { EditObjectiveSaveImplComponent } from './impl/view//bw/ub/stripehiv/module/objective/web/edit/edit-objective-save.impl.component';
-import { EditRoleSaveImplComponent } from './impl/view//bw/ub/stripehiv/role/web/edit/edit-role-save.impl.component';
-import { EditUserNewImplComponent } from './impl/view//bw/ub/stripehiv/user/web/edit/edit-user-new.impl.component';
-import { SearchRolesSearchImplComponent } from './impl/view//bw/ub/stripehiv/role/web/search/search-roles-search.impl.component';
-import { EditRoleNewImplComponent } from './impl/view//bw/ub/stripehiv/role/web/edit/edit-role-new.impl.component';
-import { EditModuleNewImplComponent } from './impl/view//bw/ub/stripehiv/module/web/edit/edit-module-new.impl.component';
-import { SearchUsersEditImplComponent } from './impl/view//bw/ub/stripehiv/user/web/search/search-users-edit.impl.component';
-import { SearchModulesSearchImplComponent } from './impl/view//bw/ub/stripehiv/module/web/search/search-modules-search.impl.component';
 import { SearchUsersSearchImplComponent } from './impl/view//bw/ub/stripehiv/user/web/search/search-users-search.impl.component';
+import { EditModuleNewImplComponent } from './impl/view//bw/ub/stripehiv/module/web/edit/edit-module-new.impl.component';
+import { SearchObjectivesSearchImplComponent } from './impl/view//bw/ub/stripehiv/module/objective/web/search/search-objectives-search.impl.component';
+import { SearchUsersEditImplComponent } from './impl/view//bw/ub/stripehiv/user/web/search/search-users-edit.impl.component';
+import { EditObjectiveSaveImplComponent } from './impl/view//bw/ub/stripehiv/module/objective/web/edit/edit-objective-save.impl.component';
+import { EditObjectiveNewImplComponent } from './impl/view//bw/ub/stripehiv/module/objective/web/edit/edit-objective-new.impl.component';
+import { EditRoleNewImplComponent } from './impl/view//bw/ub/stripehiv/role/web/edit/edit-role-new.impl.component';
+import { SearchRolesSearchImplComponent } from './impl/view//bw/ub/stripehiv/role/web/search/search-roles-search.impl.component';
+import { EditUserNewImplComponent } from './impl/view//bw/ub/stripehiv/user/web/edit/edit-user-new.impl.component';
+import { EditModuleSaveImplComponent } from './impl/view//bw/ub/stripehiv/module/web/edit/edit-module-save.impl.component';
+import { EditUserSaveImplComponent } from './impl/view//bw/ub/stripehiv/user/web/edit/edit-user-save.impl.component';
+import { SearchModulesSearchImplComponent } from './impl/view//bw/ub/stripehiv/module/web/search/search-modules-search.impl.component';
+import { EditRoleSaveImplComponent } from './impl/view//bw/ub/stripehiv/role/web/edit/edit-role-save.impl.component';
 
+import { ModuleSearchCriteria } from './gen/model/bw/ub/stripehiv/module/vo/module-search-criteria';
+import { ObjectiveSearchCriteria } from './gen/model/bw/ub/stripehiv/module/objective/vo/objective-search-criteria';
+import { ObjectiveVO } from './gen/model/bw/ub/stripehiv/module/objective/vo/objective-vo';
 import { ModuleVO } from './gen/model/bw/ub/stripehiv/module/vo/module-vo';
 import { RoleSearchCriteria } from './gen/model/bw/ub/stripehiv/role/vo/role-search-criteria';
-import { ObjectiveVO } from './gen/model/bw/ub/stripehiv/module/objective/vo/objective-vo';
+import { UserVO } from './gen/model/bw/ub/stripehiv/user/vo/user-vo';
 import { UserSearchCriteria } from './gen/model/bw/ub/stripehiv/user/vo/user-search-criteria';
 import { RoleVO } from './gen/model/bw/ub/stripehiv/role/vo/role-vo';
-import { ModuleSearchCriteria } from './gen/model/bw/ub/stripehiv/module/vo/module-search-criteria';
-import { UserVO } from './gen/model/bw/ub/stripehiv/user/vo/user-vo';
-import { ObjectiveSearchCriteria } from './gen/model/bw/ub/stripehiv/module/objective/vo/objective-search-criteria';
 
 @NgModule({
     declarations: [
@@ -101,33 +101,33 @@ import { ObjectiveSearchCriteria } from './gen/model/bw/ub/stripehiv/module/obje
         StripehivHeaderComponent,
         StripehivNavigationComponent,
 
-        SearchRolesImplComponent,
         EditUserImplComponent,
-        EditObjectiveImplComponent,
-        EditRoleImplComponent,
-        SearchUsersImplComponent,
         SearchObjectivesImplComponent,
+        SearchUsersImplComponent,
+        EditRoleImplComponent,
         SearchModulesImplComponent,
         EditModuleImplComponent,
+        EditObjectiveImplComponent,
+        SearchRolesImplComponent,
 
-        SearchRolesRolesImplComponent,
         SearchUsersUsersImplComponent,
         SearchModulesModulesImplComponent,
         SearchObjectivesObjectivesImplComponent,
+        SearchRolesRolesImplComponent,
 
-        EditUserSaveImplComponent,
-        EditObjectiveNewImplComponent,
-        SearchObjectivesSearchImplComponent,
-        EditModuleSaveImplComponent,
-        EditObjectiveSaveImplComponent,
-        EditRoleSaveImplComponent,
-        EditUserNewImplComponent,
-        SearchRolesSearchImplComponent,
-        EditRoleNewImplComponent,
+        SearchUsersSearchImplComponent,
         EditModuleNewImplComponent,
+        SearchObjectivesSearchImplComponent,
         SearchUsersEditImplComponent,
+        EditObjectiveSaveImplComponent,
+        EditObjectiveNewImplComponent,
+        EditRoleNewImplComponent,
+        SearchRolesSearchImplComponent,
+        EditUserNewImplComponent,
+        EditModuleSaveImplComponent,
+        EditUserSaveImplComponent,
         SearchModulesSearchImplComponent,
-        SearchUsersSearchImplComponent
+        EditRoleSaveImplComponent
 
     ],
     imports: [
@@ -182,56 +182,56 @@ import { ObjectiveSearchCriteria } from './gen/model/bw/ub/stripehiv/module/obje
         MatTooltipModule
     ],
     providers: [
+        ModuleSearchCriteria,
+        ObjectiveSearchCriteria,
+        ObjectiveVO,
         ModuleVO,
         RoleSearchCriteria,
-        ObjectiveVO,
+        UserVO,
         UserSearchCriteria,
         RoleVO,
-        ModuleSearchCriteria,
-        UserVO,
-        ObjectiveSearchCriteria,
 
-        UserServiceImpl,
-        ObjectiveServiceImpl,
         RoleServiceImpl,
+        ObjectiveServiceImpl,
+        UserServiceImpl,
         ModuleServiceImpl,
 
         ObjectiveSearchControllerImpl,
-        ModuleSearchControllerImpl,
-        ModuleEditControllerImpl,
-        UserEditControllerImpl,
         RoleEditControllerImpl,
-        UserSearchControllerImpl,
-        RoleSearchControllerImpl,
         ObjectiveEditControllerImpl,
+        UserSearchControllerImpl,
+        ModuleEditControllerImpl,
+        ModuleSearchControllerImpl,
+        UserEditControllerImpl,
+        RoleSearchControllerImpl,
 
-        SearchRolesImplComponent,
         EditUserImplComponent,
-        EditObjectiveImplComponent,
-        EditRoleImplComponent,
-        SearchUsersImplComponent,
         SearchObjectivesImplComponent,
+        SearchUsersImplComponent,
+        EditRoleImplComponent,
         SearchModulesImplComponent,
         EditModuleImplComponent,
+        EditObjectiveImplComponent,
+        SearchRolesImplComponent,
 
-        SearchRolesRolesImplComponent,
         SearchUsersUsersImplComponent,
         SearchModulesModulesImplComponent,
         SearchObjectivesObjectivesImplComponent,
+        SearchRolesRolesImplComponent,
 
-        EditUserSaveImplComponent,
-        EditObjectiveNewImplComponent,
-        SearchObjectivesSearchImplComponent,
-        EditModuleSaveImplComponent,
-        EditObjectiveSaveImplComponent,
-        EditRoleSaveImplComponent,
-        EditUserNewImplComponent,
-        SearchRolesSearchImplComponent,
-        EditRoleNewImplComponent,
+        SearchUsersSearchImplComponent,
         EditModuleNewImplComponent,
+        SearchObjectivesSearchImplComponent,
         SearchUsersEditImplComponent,
+        EditObjectiveSaveImplComponent,
+        EditObjectiveNewImplComponent,
+        EditRoleNewImplComponent,
+        SearchRolesSearchImplComponent,
+        EditUserNewImplComponent,
+        EditModuleSaveImplComponent,
+        EditUserSaveImplComponent,
         SearchModulesSearchImplComponent,
-        SearchUsersSearchImplComponent
+        EditRoleSaveImplComponent
 
     ],
     bootstrap: [StripehivComponent]

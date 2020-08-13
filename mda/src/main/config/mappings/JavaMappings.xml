@@ -33,13 +33,13 @@
         <from>AndroMDADatatypes::datatype::Timestamp</from>
         <to>java.util.Date</to>
     </mapping>
-    <!-- mapping>
+    <mapping>
         <from>Integer</from>
         <from>PrimitiveTypes::Integer</from>
         <from>datatype::Integer</from>
         <to>java.math.BigInteger</to>
     </mapping>
-    <mapping>
+    <!-- mapping>
         <from>Enumeration</from>
         <to>String</to>
     </mapping>

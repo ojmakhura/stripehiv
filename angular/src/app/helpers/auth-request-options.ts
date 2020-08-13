@@ -1,6 +1,6 @@
 import { Headers, Http, BaseRequestOptions } from '@angular/http';
 import { Injectable } from '@angular/core';
-import { TOKEN_NAME } from './dhis-link-constants';
+import { TOKEN_NAME } from 'src/app/stripehiv.constants';
 
 const AUTH_HEADER_KEY = 'Authorization';
 const AUTH_PREFIX = 'Bearer';
